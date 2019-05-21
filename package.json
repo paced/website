@@ -1,0 +1,22 @@
+{
+  "name": "paced.me",
+  "version": "1.0.0",
+  "description": "The business web profile of Thomas Wang.",
+  "author": "Thomas Wang",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "start": "nuxt start",
+    "build": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate": "DEPLOY_ENV=GH_PAGES nuxt generate",
+    "deploy": "npx push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "dependencies": {
+    "@nuxtjs/markdownit": "^1.2.6",
+    "@nuxtjs/sitemap": "^1.2.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "push-dir": "^0.4.1"
+  }
+}
