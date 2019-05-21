@@ -1,0 +1,44 @@
+body {
+  font-family: 'Thasadith', 'san-serif';
+  font-display: 'swap';
+}
+
+.site {
+  display: flex;
+  min-height: 97vh;
+  flex-direction: column;
+}
+
+footer {
+  margin-bottom: 2em;
+}
+
+.site-content {
+    flex: 1;
+}
+
+.card-content {
+  padding: 2.5vw;
+  padding-bottom: 2vh;
+}
+
+.section {
+  margin-top: 3vh;
+}
+
+.break {
+  padding: 2vh;
+}
+
+img {
+  margin: 0 auto;
+}
+
+.columns * {
+  box-shadow: none;
+}
+
+.card-footer, .card-footer-item {
+  border: none !important;
+  padding-bottom: 1vh;
+}
