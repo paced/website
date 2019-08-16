@@ -1,104 +1,74 @@
-<template>
-  <div class="container">
-    <div class="has-text-centered">
-      <img src="~/assets/images/hexagons.png"
-           class="image"
-           alt="paced.me hexagon logo.">
-      <h1 class="title">
-        Tian Hao <b>Thomas</b> Wang
-      </h1>
-      <h2 class="subtitle">Creative Software Engineering</h2>
-    </div>
-    <div class="break"></div>
-    <div class="columns is-gapless is-desktop" itemscope itemtype="http://schema.org/Person">
-      <div
-        class="column is-one-quarter-desktop is-full-tablet"
-        v-for="detail in details"
-        v-bind:key="detail.title"
-      >
-        <div class="card">
-          <div class="card-content">
-            <p class="title">{{ detail.title }}</p>
-            <p class="subtitle">
-              <span v-html="detail.subtitle"></span>
-            </p>
-          </div>
-          <footer class="card-footer">
-            <div class="card-footer-item" v-for="link in detail.links" v-bind:key="link.text">
-              <span>
-                <a :href="link.href" target="__blank" :title="link.title">
-                  <div class="tags has-addons">
-                    <span class="tag is-dark"><font-awesome-icon :icon="['fab', link.icon]" /></span>
-                    <span class="tag">{{ link.text }}</span>
-                  </div>
-                </a>
-              </span>
-            </div>
-          </footer>
-        </div>
-      </div>
-    </div>
-  </div>
+<template lang="md">
+    # > I'm Thomas (Tian Hao) Wang
+
+    I am a full-stack software engineer who has worked in all sorts of industries: from high-integrity fields to the creative. Feel free to send me an invite on [LinkedIn][linked-in]!
+
+    I've worked intensely to lead and promote DevOps practices in the teams I've worked with for the purpose of continuous improvement and automation.
+
+    I've contributed (see my [GitHub][github]) to open source through hackathons, personal projects, and bringing creative ideas from concept, to design, to implementation.
+
+    Outside of software, I'm a musician. I love progressive rock, jazz fusion, hip-hop, folk rock, and eletronic music. Feel free to check out my stuff on [SoundCloud][soundcloud]!
+
+    [linked-in]: https://linkedin.com/in/tianhao-wang
+    [github]: https://github.com/paced
+    [soundcloud]: https://soundcloud.com/papapastry
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      details: [
-        {
-          title: "Software",
-          subtitle:
-            "<span itemprop='name'>Tian Hao</span> (<span itemprop='additionalName'>Thomas</span>) has worked in <b>high-integrity</b> and <b>creative</b> fields as a professional <span itemprop='jobTitle'>Software Engineer</span>. In teams, Tian Hao develops practical, beautiful applications for <b>web</b>, <b>mobile</b>, and <b>desktop</b> platforms.",
-          links: [
-            {
-              href: "https://www.linkedin.com/in/tianhao-wang",
-              text: "LinkedIn",
-              icon: "linkedin",
-              title: "Tian Hao's Digital LinkedIn Resume"
-            }
-          ]
-        },
-        {
-          title: "DevOps",
-          subtitle:
-            "Processes and Tools are <b>how we build</b> software and should be elegant. In the professional space, Tian Hao has worked with process and tools <b>continuous improvement</b> and <b>automation</b>.",
-          links: []
-        },
-        {
-          title: "FOSS",
-          subtitle:
-            "Tian Hao has contributed to the <b>free and open source software</b> (FOSS) community as part of hackathons, personal projects, and bringing creative ideas from <b>concept</b>, to <b>design</b>, to <b>implementation</b>.",
-          links: [
-            {
-              href: "https://gitlab.com/papapastry",
-              text: "GitLab",
-              icon: "gitlab",
-              title: "Tian Hao's GitLab Software Repositories"
-            },
-            {
-              href: "https://github.com/paced",
-              text: "GitHub",
-              icon: "github",
-              title: "Tian Hao's GitHub Software Repositories"
-            }
-          ]
-        },
-        {
-          title: "Music",
-          subtitle:
-            "One of Tian Hao's main side passions is the <b>composition</b> and <b>performance</b> of music. He writes prog, folk, ambient, and electronic music. He plays and records music for a laugh on his <b>SoundCloud</b>.",
-          links: [
-            {
-              href: "https://soundcloud.com/papapastry",
-              text: "SoundCloud",
-              icon: "soundcloud",
-              title: "Tian Hao's Music"
-            }
-          ]
-        }
-      ]
-    };
+  mounted() {
+    var links = document.links;
+
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+      if (links[i].hostname != window.location.hostname) {
+        links[i].target = "_blank";
+      }
+    }
   }
 };
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+section {
+  padding: 5vh 10vw;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+  padding: 2.25em 0.5em 0.95em 0.5em;
+}
+
+blockquote {
+  background: #ffffff;
+  border-left: 5px solid #000000;
+  padding-left: 2em;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 4px;
+  transition: background-size cubic-bezier(0, 0.5, 0, 1) 0.3s;
+  color: #ff4800;
+}
+
+p {
+  display: block;
+  font-size: 24px;
+  max-width: 26em;
+  line-height: 1.6;
+  padding: 0.38em;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  background-size: 100% 4px;
+}
+</style>
