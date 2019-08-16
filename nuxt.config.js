@@ -20,6 +20,16 @@ const metaVars = {
   },
 };
 
+
+/**
+ * GitHub Pages export.
+ */
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/paced.me/'
+  }
+} : {}
+
 /*
  * Configure the inner workings of the Nuxt application.
  */
@@ -53,6 +63,7 @@ export default {
     breaks: true,
     use: []
   },
+  routerBase,
 };
 
 /* 
